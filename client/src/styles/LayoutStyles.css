@@ -1,0 +1,130 @@
+.main {
+    padding: 10px;
+    height: 100vh;
+}
+
+.layout {
+    display: flex;
+    font-style: italic;
+   
+}
+
+.sidebar {
+    height: 130vh;
+    margin-bottom: 5px;
+    width: 300px;
+    border-radius: 5px;
+    /* background-color:#88c9aa; */
+    background: linear-gradient(to top, #b0b0e2 0%, #3aeb92 100%);
+    box-shadow: 0 0 2px gray;
+    margin-right: 20px;
+    color: rgb(66, 54, 54);
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    height: 10vh;
+    margin-bottom: 20px;
+    box-shadow: 0 0 2px gray;
+    background-color: #ccffcc;
+    border-radius: 10px;
+}
+
+.body {
+    height: 120vh;
+    margin-bottom: 20px;
+    box-shadow: 0 0 2px gray;
+    background: linear-gradient(to bottom, #ccffcc 0%, #ccff99 100%);
+    border-radius: 10px;
+}
+
+.logo h6 {
+    font-size:2rem;
+    text-align: center;
+    /* color: #243627; */
+    color:#0b1b19;
+    margin: 20px 0px;
+}
+
+.menu {
+    margin-top: 50px;
+}
+
+.menu-item {
+    margin-top: 30px;
+}
+
+.menu-item a {
+    color:rgb(29, 24, 24);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.menu-item i {
+    font-size: 1.2rem;
+    margin: 0 15px;
+}
+
+.active {
+    background-color: white;
+    padding: 10px;
+}
+
+.active a, .active i {
+    color: rgb(51, 1, 1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: flex-end;
+    margin: 0 15px;
+    padding-bottom: 5rem;
+
+}
+
+.header-content i {
+    margin-right: 20px;
+    font-size: 1.2rem;
+}
+
+.header-content a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: blue;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+.text-center2{
+    color: rgb(21, 21, 138);
+    text-align: center;
+    
+}
+span{
+    text-shadow: 2px 3px 4px gray;
+    font-style: italic;
+}
+.heading{
+    padding: 15px 0px 0px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 2px 3px 4px gray;
+}
+.card3{
+    border:1px solid black;
+}
+
+.sub-head {
+    color: rgb(34, 34, 71);
+    text-shadow: 2px 3px 4px gray;
+    font-style: italic;
+}
+
+.bookingPage {
+    padding-left: 50px;
+}

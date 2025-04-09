@@ -1,0 +1,44 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    /* background-image: url(https://thumbs.dreamstime.com/b/doctor-holding-digital-tablet-meeting-room-portrait-beautiful-mature-woman-looking-camera-confident-female-using-164999229.jpg ); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.form-container::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    filter:blur(3px);
+    z-index:-1;
+    background-image: url(https://thumbs.dreamstime.com/b/doctor-holding-digital-tablet-meeting-room-portrait-beautiful-mature-woman-looking-camera-confident-female-using-164999229.jpg );
+    background-size: cover;
+    position: center;
+}
+
+.card2 {
+    border: 1px solid gray;
+    padding: 30px;
+    box-shadow: 0px 0px 18px  black;
+    border-radius: 18px;
+    width: 25%;
+    text-align:center;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+.card2 label{
+     font-weight: 600;
+}
+
+.text {
+    color: rgb(6, 35, 80);
+}
