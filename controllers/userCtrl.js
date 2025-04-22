@@ -187,9 +187,10 @@ const bookAppointmentController = async (req, res) => {
 // booking bookingAvailabilityController
 const bookingAvailabilityController = async (req, res) => {
     try {
-        const date = moment(req.body.date, "DD-MM-YYYY").toISOString();
-        const fromTime = moment(req.body.time, "HH:mm").subtract(1, 'hours').toISOString();
-        const toTime = moment(req.body.time, "HH:mm").add(1, 'hours').toISOString();
+        const date = req.body.date
+        const time = moment(req.body.time, "HH:mm");
+        const fromTime = time.clone().subtract(1, 'hours').format("HH:mm");
+        const toTime = time.clone().add(1, 'hours').format("HH:mm");
         const doctorId = req.body.doctorId;
         const appointments = await appointmentModel.find({doctorId,
             date,

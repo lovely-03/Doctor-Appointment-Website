@@ -36,6 +36,32 @@ const BookingPage = () => {
   //========== Booking function ======
   const handleBooking = async (e) => {
     try {
+      if (!name || !phone || !date || !time) {
+        message.error("Please fill in all the fields.");
+        return;
+      }
+      if (!/^\d{10}$/.test(phone)) {
+        message.error("Please enter a valid 10-digit phone number.");
+        return;
+      }
+      const selectedDate = new Date(date);
+      const today = new Date();
+      if (selectedDate < today) {
+        message.error("Please select a valid future date.");
+        return;
+      }
+      const [hour, minute] = time.split(':').map(Number);
+      const selectedTime = new Date(selectedDate);
+      selectedTime.setHours(hour, minute, 0, 0);
+      if (hour < 9 || hour > 17 || (hour === 17 && minute > 0)) {
+        message.error("Please select a time between 09:00 AM to 05:00 PM.");
+        return;
+      }
+      const now = new Date();
+      if (selectedDate.toDateString() === now.toDateString() && selectedTime < now) {
+        message.error("Please select a future time.");
+        return;
+      }
         e.preventDefault();
         setIsAvailable(true);
         if (!date && time) {
@@ -47,6 +73,8 @@ const BookingPage = () => {
                 doctorId: params.doctorId,
                 userId: user._id,
                 doctorInfo: doctors,
+                doctorName: doctors.firstName,
+                doctorSurname: doctors.lastName,
                 userInfo: user,
                 date: date,
                 time: time,
@@ -71,7 +99,33 @@ const BookingPage = () => {
   // ============ handle availability
   const handleAvailability = async () => {
     try {
-      dispatch(showLoading());
+      if (!name || !phone || !date || !time) {
+        message.warning("Please fill in all the fields.");
+        return;
+      }
+      if (!/^\d{10}$/.test(phone)) {
+        message.error("Please enter a valid 10-digit phone number.");
+        return;
+      }
+      const selectedDate = new Date(date);
+      const today = new Date();
+      if (selectedDate < today) {
+        message.error("Please select a valid future date.");
+        return;
+      }
+      const [hour, minute] = time.split(':').map(Number);
+      const selectedTime = new Date(selectedDate);
+      selectedTime.setHours(hour, minute, 0, 0);
+      if (hour < 9 || hour > 17 || (hour === 17 && minute > 0)) {
+        message.error("Please select a time between 09:00 AM to 05:00 PM.");
+        return;
+      }
+      const now = new Date();
+      if (selectedDate.toDateString() === now.toDateString() && selectedTime < now) {
+        message.error("Please select a future time.");
+        return;
+      }
+      // dispatch(showLoading());
       const res = await axios.post('/api/v1/user/booking-availability',
       {doctorId: params.doctorId, date, time},
       {
@@ -79,7 +133,7 @@ const BookingPage = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      dispatch(hideLoading());
+      // dispatch(hideLoading());
       if(res.data.success) {
         setIsAvailable(true);
         message.success(res.data.message);
@@ -110,7 +164,7 @@ const BookingPage = () => {
                     <div className='d-flex flex-column w-50'>
                       <h5>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='text' value={name} onChange={(e) => setName(e.target.value)} required/>
                         </h5>
-                      <h5>Phone Number:&nbsp; <input type='text' value={phone} onChange={(e) => setPhone(e.target.value)} required/>
+                      <h5>Phone Number:&nbsp; <input type='number' value={phone} onChange={(e) => setPhone(e.target.value)} required/>
                         </h5>
                       <h5>Select Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='date' value={date} onChange={(e) => setDate(e.target.value)} required/>
                       </h5>

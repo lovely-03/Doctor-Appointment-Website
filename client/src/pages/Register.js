@@ -20,7 +20,7 @@ const Register = () => {
                 message.success('Register Successfully!');
                 navigate('/login');
             } else{
-                alert("Wrong Email ID or Password");
+                message.error("Wrong Email ID or Password");
                 message.error(res.data.message);
             }
         } catch (error) {
@@ -34,13 +34,23 @@ const Register = () => {
         <div className='form-container'>
             <Form layout='vertical' onFinish={onfinishHandler} className='card2'>
                 <h3 className='text-center'>Register Form</h3>
-                <Form.Item label="Name" name="name">
+                <Form.Item label="Name" name="name" rules={[
+                    { required: true, message: "Please enter your name" },
+                    { min: 3, message: "Name must be at least 3 characters long" }]}>
                     <Input type="text" required />
                 </Form.Item>
-                <Form.Item label="Email" name="email">
+                <Form.Item label="Email" name="email" rules={[
+                    { required: true, message: "Please enter your email" },
+                    { type: "email", message: "Please enter a valid email address" }]}>
                     <Input type="email" required />
                 </Form.Item>
-                <Form.Item label="Password" name="password">
+                <Form.Item label="Password" name="password" rules={[
+                    { required: true, message: "Please enter your password" },
+                    { min: 5, message: "Password must be at least 5 characters long" },
+                    {
+                        pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                        message: "Password must include uppercase, number, and special character"
+                    }]}>
                     <Input type="password" required />
                 </Form.Item>
                 

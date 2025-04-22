@@ -112,8 +112,9 @@ span{
 .heading{
     padding: 15px 0px 0px 10px;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
     text-shadow: 2px 3px 4px gray;
+    font-family: Dancing Script;
 }
 .card3{
     border:1px solid black;

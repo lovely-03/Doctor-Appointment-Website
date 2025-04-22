@@ -29,15 +29,15 @@ const Appointments = () => {
             title:'ID',
             dataIndex:'_id',
         },
-        // {
-        //     title:'Name',
-        //     dataIndex:'name',
-        //     render: (text, record) => (
-        //         <span>
-        //             {record.doctorId.firstName} {record.doctorId.lastName}
-        //         </span>
-        //     ),
-        // },
+        {
+            title:'Doctor Name',
+            dataIndex:'name',
+            render: (text, record) => (
+                <span>
+                    {record.doctorName} {record.doctorSurname}
+                </span>
+            ),
+        },
         // {
         //     title:'Phone',
         //     dataIndex:'phone',
@@ -52,12 +52,7 @@ const Appointments = () => {
             dataIndex:'date',
             render: (text, record) => (
                 <span>
-                        {appointments.map((appointment) => (
-                            <div key={appointment._id}>
-                                {appointment.date} &nbsp;
-                                {appointment.time}
-                            </div>
-                        ))}
+                    {record.date} {record.time}
                 </span>
             ),
         },

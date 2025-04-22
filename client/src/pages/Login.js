@@ -36,10 +36,18 @@ const Login = () => {
     <div className='form-container'>
             <Form layout='vertical' onFinish={onfinishHandler} className='card2'>
                 <h3 className='text-center'>Login Form</h3>
-                <Form.Item label="Email" name="email">
+                <Form.Item label="Email" name="email" rules={[
+                    { required: true, message: "Please enter your email" },
+                    { type: "email", message: "Please enter a valid email address" }]}>
                     <Input type="email" required />
                 </Form.Item>
-                <Form.Item label="Password" name="password">
+                <Form.Item label="Password" name="password" rules={[
+                    { required: true, message: "Please enter your password" },
+                    { min: 5, message: "Password must be at least 5 characters long" },
+                    {
+                        pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                        message: "Password must include uppercase, number, and special character"
+                    }]}>
                     <Input type="password" required />
                 </Form.Item>
                 <button className='btn btn-primary' type='submit'>Login</button>

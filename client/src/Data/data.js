@@ -39,9 +39,4 @@ export const adminMenu = [
         path:'/admin/users',
         icon: 'fa-solid fa-user',
     },
-    {
-        name:'Profile',
-        path:'/profile',
-        icon: 'fa-solid fa-user',
-    },
 ];

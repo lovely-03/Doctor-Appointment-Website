@@ -13,6 +13,14 @@ const appointmentSchema = new mongoose.Schema({
         type: String,
         required:true,
     },
+    doctorName: {
+        type: String,
+        required:true,
+    },
+    doctorSurname: {
+        type: String,
+        required:true,
+    },
     userInfo: {
         type: String,
         required:true,
@@ -32,9 +40,11 @@ const appointmentSchema = new mongoose.Schema({
     },
     name: {
         type: String,
+        required:true,
     },
     phone: {
         type: String,
+        required:true,
     },
 }, {timestamps:true});
 

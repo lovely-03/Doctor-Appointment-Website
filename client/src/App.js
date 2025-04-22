@@ -70,9 +70,9 @@ function App() {
       </ProtectedRoutes>
       } />
       <Route path="/profile" element={
-      <PublicRoute>
+      <ProtectedRoutes>
         <UserProfile />
-      </PublicRoute>
+      </ProtectedRoutes>
       } />
       <Route path="/doctor-appointments" element={
       <ProtectedRoutes>

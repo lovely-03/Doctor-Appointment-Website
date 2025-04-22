@@ -56,11 +56,7 @@ const DoctorAppointments = () => {
                 dataIndex:'name',
                 render: (text, record) => (
                     <span>
-                        {appointments.map((appointment) => (
-                            <div key={appointment._id}>
-                                {appointment.name} 
-                            </div>
-                        ))}
+                        {record.name}
                     </span>
                 ),
             },
@@ -69,11 +65,7 @@ const DoctorAppointments = () => {
                 dataIndex:'phone',
                 render: (text, record) => (
                     <span>
-                        {appointments.map((appointment) => (
-                            <div key={appointment._id}>
-                                {appointment.phone}
-                            </div>
-                        ))}
+                        {record.phone}
                     </span>
                 ),
             },
@@ -82,12 +74,7 @@ const DoctorAppointments = () => {
                 dataIndex:'date',
                 render: (text, record) => (
                     <span>
-                        {appointments.map((appointment) => (
-                            <div key={appointment._id}>
-                                {appointment.date} &nbsp;
-                                {appointment.time}
-                            </div>
-                        ))}
+                        {record.date} {record.time}
                     </span>
                 ),
             },
